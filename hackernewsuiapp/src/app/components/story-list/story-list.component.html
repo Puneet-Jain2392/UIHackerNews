@@ -1,0 +1,17 @@
+<div class="search-container">
+    <app-search (search)="onSearch($event)"></app-search>
+  </div>
+  <div class="stories-container">
+    <div *ngFor="let story of filteredStories" class="story">
+      
+        <span>{{story.id}}. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>   <a *ngIf="story.url" [href]="story.url" target="_blank">{{ story.title }}</a>
+      <span *ngIf="!story.url">{{ story.title }}</span>
+    </div>
+  </div>
+  <div class="pagination">
+    <br><br>
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * itemsPerPage >= stories.length">Next</button>
+  </div>
+  
