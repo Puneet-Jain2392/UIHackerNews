@@ -2,11 +2,18 @@
     <app-search (search)="onSearch($event)"></app-search>
   </div>
   <div class="stories-container">
+    <table>
+      <tr>
+    <th><b>Story - ID</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>  <th><b>Title</b></th></tr>
+    
     <div *ngFor="let story of filteredStories" class="story">
-      
-        <span>{{story.id}}. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>   <a *ngIf="story.url" [href]="story.url" target="_blank">{{ story.title }}</a>
-      <span *ngIf="!story.url">{{ story.title }}</span>
+      <tr>
+        <td>{{story.id}} </td>  <td> <a *ngIf="story.url" [href]="story.url" target="_blank">{{ story.title }}</a>
+      <span *ngIf="!story.url">{{ story.title }}</span> </td>
+    </tr>
     </div>
+
+  </table>
   </div>
   <div class="pagination">
     <br><br>
